@@ -22,8 +22,7 @@ cat <<-EOF > /etc/apache2/conf-available/oidc.conf
     OIDCPassIDTokenAs payload
 EOF
 
-cat /etc/apache2/conf-available/oidc.conf
-
+# Set permissions on config with OIDC secrets
 chown www-data:www-data /etc/apache2/conf-available/oidc.conf
 chmod 440 /etc/apache2/conf-available/oidc.conf
 

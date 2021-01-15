@@ -3,7 +3,7 @@
 
 $INDEX_URL = "https://app.plex.tv/desktop";
 $SEARCH_STR = "<title>Plex</title>"; // Inject script tag after this line
-$INJECT_JS = "<script src=\"/js/auth.js\"></script>";
+$INJECT_JS = "<script src=\"/sso/js/auth.js\"></script>";
 
 // Pull index.html from plex.tv
 $index_page = file_get_contents($INDEX_URL);

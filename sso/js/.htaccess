@@ -1,1 +1,3 @@
 AddType application/x-httpd-php .js
+Allow from all
+Satisfy Any
