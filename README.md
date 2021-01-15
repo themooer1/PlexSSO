@@ -27,4 +27,6 @@ OIDC_CLIENT_ID | OpenID Connect client ID.  Provided by your IdP ||
 OIDC_CLIENT_SECRET | OpenID Connect client secret.  Provided by your IdP ||
 OIDC_REDIRECT_URL | URL where the IdP sends the client after login.  Can be anything in `/sso/`.  This is *NOT* the same as `PLEX_REDIRECT_URL`. || `https://<yourplexdomain>/sso/callback` (the container can't reliably determine your external domain name, so you must supply this)
 OIDC_CRYPTO_PASSPHRASE | Used by Apache to sign a login state cookie.  Should be the same on all servers in an HA deployment. | `<RANDOMLY GENERATED>` | 
+PLEX_GUEST_USER | Username of the shared Plex guest account (Share some libraries with this user) ||
+PLEX_GUEST_PASSWORD | Password of the shared Plex guest account ||
 PLEX_REDIRECT_URL | URL where PlexSSO will send the client after setting `myPlexAccessToken`.  Can be `https://<yourplexdomain>/web/index.html` or `https://app.plex.tv` | `/web/index.html` | 
