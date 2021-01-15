@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Initialize OIDC session cookie passphrase if not set
+if [ -z "$OIDC_CRYPTO_PASSPHRASE" ]; then
+    OIDC_CRYPTO_PASSPHRASE=$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | fold -w 48 | head -n 1)
+fi
+
 # Create OIDC config for 000-default.conf to load
 cat <<-EOF > /etc/apache2/conf-available/oidc.conf
     # Setup OpenID Connect Authentication
@@ -16,6 +21,8 @@ cat <<-EOF > /etc/apache2/conf-available/oidc.conf
     OIDCClaimPrefix USERINFO_
     OIDCPassIDTokenAs payload
 EOF
+
+cat /etc/apache2/conf-available/oidc.conf
 
 chown www-data:www-data /etc/apache2/conf-available/oidc.conf
 chmod 440 /etc/apache2/conf-available/oidc.conf
