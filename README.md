@@ -25,6 +25,6 @@ Variable Name | Explanation | Default | Recommended
 OIDC_METADATA_URL | Equivalent of Apache's OIDCProviderMetadataURL.  Provided by your IdP.  More info: https://developer.mobileconnect.io/provider-metadata ||
 OIDC_CLIENT_ID | OpenID Connect client ID.  Provided by your IdP ||
 OIDC_CLIENT_SECRET | OpenID Connect client secret.  Provided by your IdP ||
-OIDC_REDIRECT_URL | URL where the IdP sends the client after login.  Can be any unused name in `/sso/`.  This is *NOT* the same as `PLEX_REDIRECT_URL`. || `https://<yourplexdomain>/sso/callback` (the container can't reliably determine your external domain name, so you must supply this)
+OIDC_REDIRECT_URL | URL where the IdP sends the client after login.  Can be anything in `/sso/`.  This is *NOT* the same as `PLEX_REDIRECT_URL`. || `https://<yourplexdomain>/sso/callback` (the container can't reliably determine your external domain name, so you must supply this)
 OIDC_CRYPTO_PASSPHRASE | Used by Apache to sign a login state cookie.  Should be the same on all servers in an HA deployment. | `<RANDOMLY GENERATED>` | 
 PLEX_REDIRECT_URL | URL where PlexSSO will send the client after setting `myPlexAccessToken`.  Can be `https://<yourplexdomain>/web/index.html` or `https://app.plex.tv` | `/web/index.html` | 
