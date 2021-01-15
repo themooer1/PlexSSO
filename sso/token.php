@@ -23,12 +23,17 @@ $result = file_get_contents($PlexLoginURL, false, $context);
 
 $jdat = json_decode($result, true);
 
+// myPlexAccessToken to be given to client
+$plex_token = $jdat['user']['authentication_token'];
+// Place user will be redirected after getting token
+$plex_redirect_url = getenv()['PLEX_REDIRECT_URL'] ?? '/web/index.html';
 ?>
 
+<!-- Set myPlexAccessToken in client's localStorage -->
 <html>
 	<script>
-	let plxtkn = "<?php echo $jdat['user']['authentication_token'];?>";
+	let plxtkn = "<?php echo $plex_token; ?>";
 	localStorage.setItem('myPlexAccessToken', plxtkn);
-	window.location = "/web/index.html";
+	window.location = "<?php echo $plex_redirect_url; ?>";
 	</script>
 </html>
