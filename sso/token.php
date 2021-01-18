@@ -8,7 +8,8 @@ $PlexLoginURL = "https://plex.tv/users/sign_in.json";
 $data = array('user[login]' => $PlexUser, 'user[password]' => $PlexPassword);
 $options = array(
 	'http' => array(
-		'header' => "X-Plex-Client-Identifier: 1IAf7KKAH8wq0eOOw46dwq\n" .
+		'header' => "Content-Type: text/html\n" .
+		"X-Plex-Client-Identifier: 1IAf7KKAH8wq0eOOw46dwq\n" .
 		"X-Plex-Product: php-sso-passthrough\n" .
 		"X-Plex-Version: 1.1\n",
 
