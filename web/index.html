@@ -1,7 +1,10 @@
 <?php
 // Injects Authenticator redirect into index.html
 
-$INDEX_URL = "https://app.plex.tv/desktop";
+// $INDEX_URL = "https://app.plex.tv/desktop";
+$PLEX_BACKEND_BASE_URL = rtrim((getenv('PLEX_BACKEND_BASE_URL') ?? 'https://app.plex.tv'), "/");
+$INDEX_URL = $PLEX_BACKEND_BASE_URL . "/web/index.html";
+
 $SEARCH_STR = "<title>Plex</title>"; // Inject script tag after this line
 $INJECT_JS = "<script src=\"/sso/js/auth.js\"></script>";
 
