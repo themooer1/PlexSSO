@@ -29,4 +29,5 @@ OIDC_REDIRECT_URL | URL where the IdP sends the client after login.  Can be anyt
 OIDC_CRYPTO_PASSPHRASE | Used by Apache to sign a login state cookie.  Should be the same on all servers in an HA deployment. | `<RANDOMLY GENERATED>` | 
 PLEX_GUEST_USER | Username of the shared Plex guest account (Share some libraries with this user) ||
 PLEX_GUEST_PASSWORD | Password of the shared Plex guest account ||
-PLEX_REDIRECT_URL | URL where PlexSSO will send the client after setting `myPlexAccessToken`.  Can be `https://<yourplexdomain>/web/index.html` or `https://app.plex.tv` | `/web/index.html` | 
+PLEX_REDIRECT_URL | URL where PlexSSO will send the client after setting `myPlexAccessToken`.  Can be `https://<yourplexdomain>/web/index.html` or `https://app.plex.tv/` | `/web/index.html` | 
+PLEX_BACKEND_BASE_URL | URL of Plex instance where PlexSSO will get the original version of pages like `/web/index.html` before it modifies them.  This will probably be an internal URL.  It cannot be the URL of PlexSSO because PlexSSO will infinitely try fetching `/web/index.html` from itself.  `https://app.plex.tv` used to work, but its `index.html` doesn't use the same names for resources as a self-hosted plex instance, so if your redirect url isn't `https://app.plex.tv/`, those pages will fail to load from your plex instance. |`https://app.plex.tv`|`http://internal-plex:32400`|
